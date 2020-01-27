@@ -52,7 +52,7 @@ class Table extends Component {
     async componentDidMount() {
         // Load async data.
         try {
-            let response = await axios.get('http://192.168.86.33:3000/api/employees');
+            let response = await axios.get('http://localhost:3000/api/employees');
             console.log('👉 Returned data:', response);
             this.setState({employees: response.data});
         } catch (e) {

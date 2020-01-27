@@ -20,13 +20,13 @@ class Form extends React.Component {
             hireDate: this.state.hireDate,
             role: this.state.value
         }
-        let res = await axios.post('http://192.168.86.33:3000/api/employees', body, {crossDomain: true});
+        let res = await axios.post('http://localhost:3000/api/employees', body, {crossDomain: true});
      }
 
     submitHandler = (event) => {
         event.preventDefault();
-        // alert("firstName: " + this.state.firstName + " lastName: " + this.state.lastName + "\n" +
-        //     " hireDate: " + this.state.hireDate + " role: " + this.state.value);
+        alert("firstName: " + this.state.firstName + " lastName: " + this.state.lastName + "\n" +
+            " hireDate: " + this.state.hireDate + " role: " + this.state.value);
         this.postAsync();
     }
 
