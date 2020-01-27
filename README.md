@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Full-Stack-Take-Home-2-Backend
 
-## Available Scripts
+#### Installation instructions
 
-In the project directory, you can run:
+Install Node.js where you want to run this Backend application.  Clone this project from GitHub to local directory.  In terminal, change directory to the installation directory and run command 'npm install' which will install all dependencies from package.json file.  
 
-### `npm start`
+#### Running instructions
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+From the installation directory execute command 'npm start'.  From browser, navigate to 'http://localhost:3006' and follow instructions from screen.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**TASK**
 
-### `npm test`
+- Create a node app that implements a set of REST APIs allowing CRUD functionality for an employee resource.
+- Add a front end component of your choosing. The front end component should:
+  - Show a list of the existing employees
+  - Include a way to create a new employee using the POST API
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Expected Time**
 
-### `npm run build`
+This exercise is expected to take about 4-5 hours total, over the course of 2-3 days.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Submission Instructions**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Post your solution to a public repository on [Github](https://github.com/). Send the repository URL back to the same person who sent you these instructions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Additional Guidance**
 
-### `npm run eject`
+Persistent storage is not necessary, just use an in memory object to track employee records.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Use any npm modules you find useful.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Expected Endpoints**
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+POST http://localhost:3000/api/employees
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Create a new record using a randomly generated value as the unique identifier (i.e. _id field).  Validate that the following fields are included in the POST body and have the right type/format as posted below:
+    - firstName (String)
+    - lastName (String)
+    - hireDate (YYYY-MM-DD format must be in the past)
+    - role (String) - must be one of the following (case-insensitive):
+        - CEO (can only be one of these)
+        - VP
+        - MANAGER
+        - LACKEY
 
-## Learn More
+    - In addition to the fields included in the POST body, include two fields in each new record that are populated by different external APIs.  For example, a favorite joke and a favorite quote, or a favorite joke and a second favorite joke.  As long as the two external APIs are different.
+        - Possible API endpoints:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+            https://ron-swanson-quotes.herokuapp.com/v2/quotes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+            https://icanhazdadjoke.com
 
-### Code Splitting
+            https://quotes.rest/qod
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+PUT http://localhost:3000/api/employees/:id
 
-### Analyzing the Bundle Size
+- Replace the record corresponding to :id with the contents of the PUT body
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+GET http://localhost:3000/api/employees/:id
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Return the record corresponding to the id parameter
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+GET http://localhost:3000/api/employees
 
-### Deployment
+- Return all current records
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+DELETE http://localhost:3000/api/employees/:id
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- delete the record corresponding to the id parameter
+
+
