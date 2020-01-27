@@ -25,8 +25,8 @@ class Form extends React.Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        alert("firstName: " + this.state.firstName + " lastName: " + this.state.lastName + "\n" +
-            " hireDate: " + this.state.hireDate + " role: " + this.state.value);
+        // alert("firstName: " + this.state.firstName + " lastName: " + this.state.lastName + "\n" +
+        //     " hireDate: " + this.state.hireDate + " role: " + this.state.value);
         this.postAsync();
     }
 
