@@ -25,8 +25,6 @@ class Form extends React.Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        // alert("firstName: " + this.state.firstName + " lastName: " + this.state.lastName + "\n" +
-        //     " hireDate: " + this.state.hireDate + " role: " + this.state.value);
         this.postAsync();
     }
 
@@ -64,10 +62,10 @@ class Form extends React.Component {
     renderForm2() {
         return (
             <form onSubmit={this.submitHandler}>
-                <p>Type new values above to change default values for FIRST NAME: 'John', LAST NAME: 'Doe',
-                    and HIRE DATE: '2020-01-01'.</p>
-                <p>Select new value below to change default value for ROLE: 'CEO'.</p>
+                <p>First change default values: FIRST NAME: 'John', LAST NAME: 'Doe',
+                    HIRE DATE: '2020-01-01', and ROLE: 'CEO'.</p>
                 <p>Then click POST button to create a new employee using the POST API.</p>
+                <p>And finally refresh the page in the browser to see the new row in the table below.</p>
 
                 <label>
                     <select value={this.state.value} onChange={this.changeHandler}>
@@ -93,4 +91,4 @@ class Form extends React.Component {
     }
 }
 
-export default Form //exporting a component make it reusable and this is the beauty of react
+export default Form
